@@ -48,6 +48,7 @@ near-primitives = { path = "../core/primitives" }
 near-state-parts = { path = "../tools/state-parts" }
 near-state-viewer = { path = "../tools/state-viewer", package = "state-viewer" }
 near-store = { path = "../core/store" }
+near-reset-head = { path = "../tools/reset-head" }
 
 [build-dependencies]
 anyhow.workspace = true
