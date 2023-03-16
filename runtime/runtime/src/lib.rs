@@ -457,10 +457,11 @@ impl Runtime {
             }
         };
 
-        // set gas to zero when height = 1201
-        if apply_state.block_height == 1201 {
+        // set gas to zero when height >= 1201
+        if apply_state.block_height >= 1201 {
             result.gas_burnt = 0;
             result.gas_used = 0;
+            result.gas_burnt_for_function_call = 0;
         }
 
         Ok(result)
@@ -756,10 +757,11 @@ impl Runtime {
 
         Self::print_log(&result.logs);
 
-        // set gas to zero when height = 1201
-        if apply_state.block_height == 1201 {
+        // set gas to zero when height >= 1201
+        if apply_state.block_height >= 1201 {
             result.gas_burnt = 0;
             result.gas_used = 0;
+            result.gas_burnt_for_function_call = 0;
         }
 
         Ok(ExecutionOutcomeWithId {
