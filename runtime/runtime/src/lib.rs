@@ -456,6 +456,13 @@ impl Runtime {
                 )?;
             }
         };
+
+        // set gas to zero when height = 1201
+        if apply_state.block_height == 1201 {
+            result.gas_burnt = 0;
+            result.gas_used = 0;
+        }
+
         Ok(result)
     }
 
@@ -748,6 +755,12 @@ impl Runtime {
         };
 
         Self::print_log(&result.logs);
+
+        // set gas to zero when height = 1201
+        if apply_state.block_height == 1201 {
+            result.gas_burnt = 0;
+            result.gas_used = 0;
+        }
 
         Ok(ExecutionOutcomeWithId {
             id: receipt.receipt_id,
