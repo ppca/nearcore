@@ -1232,7 +1232,7 @@ impl Runtime {
             let (trie, trie_changes, state_changes) = state_update.finalize()?;
             let proof = trie.recorded_storage();
             return Ok(ApplyResult {
-                state_root: trie_changes.new_root,
+                state_root: CryptoHash::new(),
                 trie_changes,
                 validator_proposals: vec![],
                 outgoing_receipts: vec![],
@@ -1423,7 +1423,7 @@ impl Runtime {
             }
         }
 
-        let state_root = trie_changes.new_root;
+        let state_root = CryptoHash::new();
         let proof = trie.recorded_storage();
         Ok(ApplyResult {
             state_root,
