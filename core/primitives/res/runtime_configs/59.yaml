@@ -12,3 +12,7 @@ action_create_account: {
     wasm_touching_trie_node: 0
   }
 }
+wasm_touching_trie_node: {
+    old:  16_101_955_926,
+    new:  0
+}
